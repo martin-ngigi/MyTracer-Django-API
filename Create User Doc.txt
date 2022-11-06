@@ -1,0 +1,107 @@
+In postman
+
+1. POST -> Create User
+endpoint -> http://127.0.0.1:8000/accounts/users/
+body :
+{
+    "email": "martinwainaina002@gmail.com",
+    "username": "martinwainaina",
+    "phone": "0797292290",
+    "first_name": "Martin",
+    "last_name": "Wainaina",
+    "password": "12345678",
+    "backup_phone":"0712345678" 
+}
+
+expected result:
+{
+    "id": 2,
+    "first_name": "Martin",
+    "last_name": "Wainaina",
+    "email": "martinwainaina002@gmail.com",
+    "phone": "0797292290",
+    "password": "12345678",
+    "username": "martinwainaina",
+    "backup_phone": "0712345678",
+    "registeredDate": "2022-11-06T06:42:50.239505Z"
+}
+
+2. GET -> Retrieve all user
+endpoint -> http://127.0.0.1:8000/accounts/users/
+
+expected result:
+{
+    "users": [
+        {
+            "id": 1,
+            "first_name": "Martin",
+            "last_name": "Wainaina",
+            "email": "martinwainaina001@gmail.com",
+            "phone": "0797292290",
+            "password": "12345678",
+            "username": "martinwainaina",
+            "backup_phone": "0712345678",
+            "registeredDate": "2022-11-06T06:37:11.071000Z"
+        },
+        {
+            "id": 2,
+            "first_name": "Martin",
+            "last_name": "Wainaina",
+            "email": "martinwainaina002@gmail.com",
+            "phone": "0797292290",
+            "password": "12345678",
+            "username": "martinwainaina",
+            "backup_phone": "0712345678",
+            "registeredDate": "2022-11-06T06:42:50.239000Z"
+        }
+    ]
+}
+
+
+
+3. GET -> Retrieve user by id
+endpoint -> http://127.0.0.1:8000/accounts/users/2/
+
+expected result:
+
+{
+    "id": 2,
+    "first_name": "Martin",
+    "last_name": "Wainaina",
+    "email": "martinwainaina002@gmail.com",
+    "phone": "0797292290",
+    "password": "12345678",
+    "username": "martinwainaina",
+    "backup_phone": "0712345678",
+    "registeredDate": "2022-11-06T06:42:50.239000Z"
+}
+
+
+PUT -> Update User by id
+endpoint -> http://127.0.0.1:8000/accounts/users/2/
+body:
+{
+    "email": "martinwainaina@gmail.com",
+    "username": "martinwainaina",
+    "phone": "0797292290",
+    "first_name": "Martin",
+    "last_name": "Wainaina",
+    "password": "12345678",
+    "backup_phone":"0712345678" 
+}
+
+expected result:
+{
+    "id": 2,
+    "first_name": "Martin",
+    "last_name": "Wainaina",
+    "email": "martinwainaina@gmail.com",
+    "phone": "0797292290",
+    "password": "12345678",
+    "username": "martinwainaina",
+    "backup_phone": "0712345678",
+    "registeredDate": "2022-11-06T06:42:50.239000Z"
+}
+
+DELETE -> Delete user by id
+endpoint -> http://127.0.0.1:8000/accounts/users/2/

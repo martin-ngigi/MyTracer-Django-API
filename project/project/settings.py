@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-+f9%tn=&bpdo=t928^fv_s6$dnx42(5!(9h$h+&$9j72mms$1^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"] #allow any host
 
 
 # Application definition
@@ -37,6 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    
+    # Created apps
+    "accounts",
+    
+    # third-party-apps
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
@@ -73,11 +81,28 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+
+#db: mytracer-db
+#collection: mytracer-collection
+#mongodb data access username: wainaina
+#mongodb data access password: 1234
+
+# Mongo db
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'default': {
+            'ENGINE': 'djongo',
+            'NAME': 'my-tracer-db',
+            'CLIENT': {
+                'host': 'mongodb+srv://wainaina:1234@cluster0.dcztjre.mongodb.net/mytracer-db?serverSelectionTryOnce=false&serverSelectionTimeoutMS=150000&w=majority'
+            }  
+        }
 }
 
 
