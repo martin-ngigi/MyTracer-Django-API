@@ -17,10 +17,10 @@ class User(models.Model):
 
 
 class Location(models.Model):
-    latitude = models.CharField(max_length=30)
-    longitude = models.CharField(max_length=30)
-    date = models.CharField(max_length=30)
-    time = models.CharField(max_length=30)
+    latitude = models.CharField(max_length=100)
+    longitude = models.CharField(max_length=100)
+    date = models.CharField(max_length=100)
+    time = models.CharField(max_length=400)
     #NB: "user", "immunizations" must be the same as the one used in the serializers
     user = models.ForeignKey(User, related_name="locations", on_delete= models.CASCADE) #i.e  1
 
