@@ -15,7 +15,7 @@ body :
 
 expected result:
 {
-    "id": 2,
+    "id": 1,
     "first_name": "Martin",
     "last_name": "Wainaina",
     "email": "martinwainaina002@gmail.com",
@@ -23,28 +23,19 @@ expected result:
     "password": "12345678",
     "username": "martinwainaina",
     "backup_phone": "0712345678",
-    "registeredDate": "2022-11-06T06:42:50.239505Z"
+    "registeredDate": "2022-11-09T17:08:20.952426Z",
+    "userLocationID": null
 }
 
 2. GET -> Retrieve all user
 endpoint -> http://127.0.0.1:8000/accounts/users/
 
 expected result:
+
 {
     "users": [
         {
             "id": 1,
-            "first_name": "Martin",
-            "last_name": "Wainaina",
-            "email": "martinwainaina001@gmail.com",
-            "phone": "0797292290",
-            "password": "12345678",
-            "username": "martinwainaina",
-            "backup_phone": "0712345678",
-            "registeredDate": "2022-11-06T06:37:11.071000Z"
-        },
-        {
-            "id": 2,
             "first_name": "Martin",
             "last_name": "Wainaina",
             "email": "martinwainaina002@gmail.com",
@@ -52,7 +43,20 @@ expected result:
             "password": "12345678",
             "username": "martinwainaina",
             "backup_phone": "0712345678",
-            "registeredDate": "2022-11-06T06:42:50.239000Z"
+            "registeredDate": "2022-11-09T17:08:20.952000Z",
+            "userLocationID": 1
+        },
+        {
+            "id": 3,
+            "first_name": "Faith",
+            "last_name": "Wanjeri",
+            "email": "wanjeri@gmail.com",
+            "phone": "0712345678",
+            "password": "12345678",
+            "username": "wanjeri@gmail.com",
+            "backup_phone": "0787654321",
+            "registeredDate": "2022-11-09T17:09:23.220000Z",
+            "userLocationID": null
         }
     ]
 }
@@ -60,39 +64,40 @@ expected result:
 
 
 3. GET -> Retrieve user by id
-endpoint -> http://127.0.0.1:8000/accounts/users/2/
+endpoint -> http://127.0.0.1:8000/accounts/users/3/
 
 expected result:
-
 {
-    "id": 2,
-    "first_name": "Martin",
-    "last_name": "Wainaina",
-    "email": "martinwainaina002@gmail.com",
-    "phone": "0797292290",
+    "id": 3,
+    "first_name": "Faith",
+    "last_name": "Wanjeri",
+    "email": "wanjeri@gmail.com",
+    "phone": "0712345678",
     "password": "12345678",
-    "username": "martinwainaina",
-    "backup_phone": "0712345678",
-    "registeredDate": "2022-11-06T06:42:50.239000Z"
+    "username": "wanjeri@gmail.com",
+    "backup_phone": "0787654321",
+    "registeredDate": "2022-11-09T17:09:23.220000Z",
+    "userLocationID": null
 }
-
 
 PUT -> Update User by id
-endpoint -> http://127.0.0.1:8000/accounts/users/2/
+endpoint -> http://127.0.0.1:8000/accounts/users/3/
 body:
 {
-    "email": "martinwainaina@gmail.com",
-    "username": "martinwainaina",
-    "phone": "0797292290",
-    "first_name": "Martin",
-    "last_name": "Wainaina",
+    "first_name": "Faith",
+    "last_name": "Wanjeri",
+    "email": "wanjeri@gmail.com",
+    "phone": "0712345678",
     "password": "12345678",
-    "backup_phone":"0712345678" 
+    "username": "wanjeri@gmail.com",
+    "backup_phone": "0787654321",
+    "registeredDate": "2022-11-09T17:09:23.220000Z",
+    "userLocationID": 3
 }
 
 expected result:
 {
-    "id": 2,
+    "id": 3,
     "first_name": "Martin",
     "last_name": "Wainaina",
     "email": "martinwainaina@gmail.com",
@@ -101,6 +106,7 @@ expected result:
     "username": "martinwainaina",
     "backup_phone": "0712345678",
     "registeredDate": "2022-11-06T06:42:50.239000Z"
+    "userLocationID": 3
 }
 
 DELETE -> Delete user by id

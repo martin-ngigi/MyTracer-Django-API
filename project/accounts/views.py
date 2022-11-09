@@ -7,6 +7,9 @@ from rest_framework.response import Response
 from rest_framework import status
 from .models import User
 
+from django.http import HttpResponse, Http404
+
+
 class UserView(APIView):
     # List all User, or create a new snippet.
     def get(self, request):
@@ -27,8 +30,8 @@ class UserDetail(APIView):
     def get_object(self, pk):
         try:
             return User.objects.get(pk=pk)
-        except User.DoseNotExist:
-            return HTTP404
+        except User.DoesNotExist:
+            raise Http404
 
     def get(self, request, pk, format=None):
         user =self.get_object(pk)
