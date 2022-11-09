@@ -42,9 +42,13 @@ INSTALLED_APPS = [
     
     # Created apps
     "accounts",
+    "locations",
     
     # third-party-apps
     "rest_framework",
+
+    # pip install django-filter
+    'django_filters',
 ]
 
 MIDDLEWARE = [

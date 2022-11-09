@@ -1,0 +1,204 @@
+In postman
+
+USERS
+---------------------------------------------------------
+1. POST -> Create User
+endpoint -> http://127.0.0.1:8000/locations/users/
+body :
+{
+    "email": "martinwainaina002@gmail.com",
+    "username": "martinwainaina",
+    "phone": "0797292290",
+    "first_name": "Martin",
+    "last_name": "Wainaina",
+    "password": "12345678",
+    "backup_phone":"0712345678" 
+}
+
+expected result:
+{
+    "id": 3,
+    "locations": [],
+    "first_name": "Martin",
+    "last_name": "Wainaina",
+    "email": "martinwainaina001@gmail.com",
+    "phone": "0797292290",
+    "password": "12345678",
+    "username": "martinwainaina",
+    "backup_phone": "0712345678",
+    "registeredDate": "2022-11-09T14:39:30.386699Z"
+}
+
+2. GET -> Retrieve all user
+endpoint -> http://127.0.0.1:8000/locations/users/
+
+expected result:
+[
+    {
+        "id": 1,
+        "locations": [],
+        "first_name": "Martin",
+        "last_name": "Wainaina",
+        "email": "martinwainaina001@gmail.com",
+        "phone": "0797292290",
+        "password": "12345678",
+        "username": "martinwainaina",
+        "backup_phone": "0712345678",
+        "registeredDate": "2022-11-09T14:30:08.452000Z"
+    },
+    {
+        "id": 2,
+        "locations": [],
+        "first_name": "Martin",
+        "last_name": "Wainaina",
+        "email": "martinwainaina001@gmail.com",
+        "phone": "0797292290",
+        "password": "12345678",
+        "username": "martinwainaina",
+        "backup_phone": "0712345678",
+        "registeredDate": "2022-11-09T14:31:16.755000Z"
+    }
+]
+
+
+3. GET -> Retrieve user by id
+endpoint -> http://127.0.0.1:8000/locations/users/2/
+
+expected result:
+
+{
+    "id": 2,
+    "locations": [],
+    "first_name": "Martin",
+    "last_name": "Wainaina",
+    "email": "martinwainaina001@gmail.com",
+    "phone": "0797292290",
+    "password": "12345678",
+    "username": "martinwainaina",
+    "backup_phone": "0712345678",
+    "registeredDate": "2022-11-09T14:31:16.755000Z"
+}
+
+
+
+DELETE -> Delete user by id
+endpoint -> http://127.0.0.1:8000/accounts/users/1/
+
+
+LOCATIONS.
+----------------------------------------------------
+1.POST -> Create locations
+endpoint -> http://127.0.0.1:8000/locations/location/
+body: 
+{
+    "latitude": "28.8374",
+    "longitude": "38.283",
+    "date": "09-11-2022",
+    "time": "05:52 PM",
+    "user": 2
+}
+
+result:
+{
+    "id": 1,
+    "user": 2,
+    "latitude": "28.8374",
+    "longitude": "38.283",
+    "date": "09-11-2022",
+    "time": "05:52 PM"
+}
+
+2. GET -> Retrieve all users inclusive of locations
+endpoint -> http://127.0.0.1:8000/locations/users/
+result:
+[
+    {
+        "id": 1,
+        "locations": [
+            {
+                "id": 2,
+                "user": 1,
+                "latitude": "28.8374",
+                "longitude": "38.283",
+                "date": "09-11-2022",
+                "time": "05:52 PM"
+            }
+        ],
+        "first_name": "Martin",
+        "last_name": "Wainaina",
+        "email": "martinwainaina001@gmail.com",
+        "phone": "0797292290",
+        "password": "12345678",
+        "username": "martinwainaina",
+        "backup_phone": "0712345678",
+        "registeredDate": "2022-11-09T14:30:08.452000Z"
+    },
+    {
+        "id": 2,
+        "locations": [
+            {
+                "id": 1,
+                "user": 2,
+                "latitude": "28.8374",
+                "longitude": "38.283",
+                "date": "09-11-2022",
+                "time": "05:52 PM"
+            }
+        ],
+        "first_name": "Martin",
+        "last_name": "Wainaina",
+        "email": "martinwainaina001@gmail.com",
+        "phone": "0797292290",
+        "password": "12345678",
+        "username": "martinwainaina",
+        "backup_phone": "0712345678",
+        "registeredDate": "2022-11-09T14:31:16.755000Z"
+    },
+    {
+        "id": 3,
+        "locations": [],
+        "first_name": "Martin",
+        "last_name": "Wainaina",
+        "email": "martinwainaina001@gmail.com",
+        "phone": "0797292290",
+        "password": "12345678",
+        "username": "martinwainaina",
+        "backup_phone": "0712345678",
+        "registeredDate": "2022-11-09T14:39:30.386000Z"
+    }
+]
+
+
+3. GET -> Retrieve locations
+endpoint-> http://127.0.0.1:8000/locations/location/
+result:
+[
+    {
+        "id": 1,
+        "user": 2,
+        "latitude": "28.8374",
+        "longitude": "38.283",
+        "date": "09-11-2022",
+        "time": "05:52 PM"
+    },
+    {
+        "id": 2,
+        "user": 1,
+        "latitude": "28.8374",
+        "longitude": "38.283",
+        "date": "09-11-2022",
+        "time": "05:52 PM"
+    }
+]
+
+4.GET -> Retrieve location by id
+endpoint -> http://127.0.0.1:8000/locations/location/1/
+result: 
+{
+    "id": 1,
+    "user": 2,
+    "latitude": "28.8374",
+    "longitude": "38.283",
+    "date": "09-11-2022",
+    "time": "05:52 PM"
+}
