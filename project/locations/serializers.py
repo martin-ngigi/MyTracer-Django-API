@@ -3,8 +3,6 @@ from rest_framework import serializers
 from locations.models import Location, User
 
 class LocationSerializer(serializers.ModelSerializer):
-    user = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(), many=False) #user id  ie 1
-
     class Meta:
         model=Location
         fields='__all__'
